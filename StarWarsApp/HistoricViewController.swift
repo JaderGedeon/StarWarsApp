@@ -7,11 +7,15 @@
 
 import UIKit
 
+var lastOpenedItens: [String] = [""]
+
 class HistoricViewController: UICollectionViewController {
-
-
-    let lastOpenedItens: [String] = [""]
+    
     let image = UIImage(named: "HanSolo")
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,7 @@ class HistoricViewController: UICollectionViewController {
         bgImageView.contentMode = .scaleAspectFit
         
         self.collectionView.backgroundView = bgImageView
-
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -32,10 +36,13 @@ class HistoricViewController: UICollectionViewController {
         
         var cell = UICollectionViewCell()
         
+        if lastOpenedItens[indexPath.row] == ""{
+        }
+        
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
             itemCell.configure(with: lastOpenedItens[indexPath.row], itemImage: image!)
-            print(lastOpenedItens[indexPath.row])
+            
             cell = itemCell
             cell.layer.cornerRadius = 25
         }
@@ -48,5 +55,5 @@ class HistoricViewController: UICollectionViewController {
     }
 }
 
-    
+
 

@@ -7,6 +7,7 @@
 
 import UIKit
 
+var category: Int = 0
 
 class CollectionViewController: UICollectionViewController {
 
@@ -45,6 +46,8 @@ class CollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        category = indexPath.row
         performSegue(withIdentifier: "categories", sender: self)
     }
 }

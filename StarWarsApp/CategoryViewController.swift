@@ -9,11 +9,22 @@ import UIKit
 
 class CategoryViewController: UICollectionViewController {
 
-    let categories: [String] = ["1", "2", "3", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"]
+    var categories = [""]
     let image = UIImage(named: "HanSolo")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch category {
+        case 0:
+            categories = ["Han Solo", "Darth Vader", "Luke Skywalker", "Leia Organa"]
+        case 1:
+            categories = ["Wookies", "Ewoks", "Twileks"]
+        case 2:
+            categories = ["Corvette", "Destroyer", "Millenium Falcom"]
+        default:
+            print("failed to request")
+        }
 
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
         bgImageView.contentMode = .scaleAspectFit
@@ -42,7 +53,13 @@ class CategoryViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item selecionado: \(categories[indexPath.row])")
+        
+        if lastOpenedItens.contains(categories[indexPath.row]){
+            return
+        }else{
+            lastOpenedItens.insert(categories[indexPath.row], at: 0)
+        }
+        
     }
 
 }
