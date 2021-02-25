@@ -69,8 +69,6 @@ class APIManager {
                             
                             self.arrayOfTags.append(label!)
                             self.arrayOfAnswer.append(value as! String)
-                            
-                            print("\(label!): \(value)")
                                            
                         }
                     }
