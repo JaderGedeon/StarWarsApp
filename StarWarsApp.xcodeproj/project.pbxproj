@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161DFF0225E6B39A00295955 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0125E6B39A00295955 /* APIRequest.swift */; };
+		161DFF1225E6C8EE00295955 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0725E6C8EE00295955 /* Film.swift */; };
+		161DFF1625E6C8EE00295955 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0C25E6C8EE00295955 /* Starship.swift */; };
+		161DFF1825E6C8EE00295955 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0F25E6C8EE00295955 /* People.swift */; };
 		1647C50725E5682E00AD690D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647C50625E5682E00AD690D /* AppDelegate.swift */; };
 		1647C50925E5682E00AD690D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647C50825E5682E00AD690D /* SceneDelegate.swift */; };
 		1647C50E25E5682E00AD690D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1647C50C25E5682E00AD690D /* Main.storyboard */; };
 		1647C51125E5682E00AD690D /* StarWarsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1647C50F25E5682E00AD690D /* StarWarsApp.xcdatamodeld */; };
 		1647C51325E5682F00AD690D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1647C51225E5682F00AD690D /* Assets.xcassets */; };
 		1647C51625E5682F00AD690D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1647C51425E5682F00AD690D /* LaunchScreen.storyboard */; };
+		165191A425E5777F00BB591F /* InfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165191A325E5777F00BB591F /* InfoView.storyboard */; };
+		165191A925E577E600BB591F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165191A825E577E600BB591F /* InfoViewController.swift */; };
+		165191B025E57F2000BB591F /* InfoTableViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165191AE25E57F2000BB591F /* InfoTableViewCode.swift */; };
+		165191B125E57F2000BB591F /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 165191AF25E57F2000BB591F /* InfoTableViewCell.xib */; };
+		16DD0C9725E7D785005D4922 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0C9625E7D785005D4922 /* Planet.swift */; };
+		16DD0C9A25E7E572005D4922 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0C9925E7E572005D4922 /* Species.swift */; };
+		16DD0C9D25E7E9DB005D4922 /* Vehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0C9C25E7E9DB005D4922 /* Vehicles.swift */; };
 		2D63FE0025E6CEC50082F27E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D63FDFF25E6CEC50082F27E /* TabBarController.swift */; };
 		2D63FE0425E6E40B0082F27E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D63FE0325E6E40B0082F27E /* CategoryViewController.swift */; };
 		2D63FE0925E6E9B20082F27E /* HistoricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D63FE0825E6E9B20082F27E /* HistoricViewController.swift */; };
@@ -21,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161DFF0125E6B39A00295955 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		161DFF0725E6C8EE00295955 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		161DFF0C25E6C8EE00295955 /* Starship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
+		161DFF0F25E6C8EE00295955 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		1647C50325E5682E00AD690D /* StarWarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1647C50625E5682E00AD690D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1647C50825E5682E00AD690D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +44,13 @@
 		1647C51225E5682F00AD690D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1647C51525E5682F00AD690D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1647C51725E5682F00AD690D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		165191A325E5777F00BB591F /* InfoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoView.storyboard; sourceTree = "<group>"; };
+		165191A825E577E600BB591F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		165191AE25E57F2000BB591F /* InfoTableViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCode.swift; sourceTree = "<group>"; };
+		165191AF25E57F2000BB591F /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		16DD0C9625E7D785005D4922 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		16DD0C9925E7E572005D4922 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		16DD0C9C25E7E9DB005D4922 /* Vehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicles.swift; sourceTree = "<group>"; };
 		2D63FDFF25E6CEC50082F27E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2D63FE0325E6E40B0082F27E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		2D63FE0825E6E9B20082F27E /* HistoricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +69,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161DFF0025E6B38600295955 /* API Request */ = {
+			isa = PBXGroup;
+			children = (
+				161DFF0125E6B39A00295955 /* APIRequest.swift */,
+			);
+			path = "API Request";
+			sourceTree = "<group>";
+		};
+		161DFF0525E6C8EE00295955 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				161DFF0725E6C8EE00295955 /* Film.swift */,
+				161DFF0C25E6C8EE00295955 /* Starship.swift */,
+				161DFF0F25E6C8EE00295955 /* People.swift */,
+				16DD0C9625E7D785005D4922 /* Planet.swift */,
+				16DD0C9925E7E572005D4922 /* Species.swift */,
+				16DD0C9C25E7E9DB005D4922 /* Vehicles.swift */,
+			);
+			path = RequestModels;
+			sourceTree = "<group>";
+		};
 		1647C4FA25E5682E00AD690D = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +109,12 @@
 		1647C50525E5682E00AD690D /* StarWarsApp */ = {
 			isa = PBXGroup;
 			children = (
+				161DFF0525E6C8EE00295955 /* RequestModels */,
+				161DFF0025E6B38600295955 /* API Request */,
+				165191B825E593D600BB591F /* Fonts */,
+				165191AD25E57EC200BB591F /* XIBs */,
+				165191A725E577A100BB591F /* Source Code */,
+				165191A625E5778A00BB591F /* Storyboards */,
 				1647C50625E5682E00AD690D /* AppDelegate.swift */,
 				1647C50825E5682E00AD690D /* SceneDelegate.swift */,
 				2D63FDFF25E6CEC50082F27E /* TabBarController.swift */,
@@ -80,6 +129,38 @@
 				2D63FE0825E6E9B20082F27E /* HistoricViewController.swift */,
 			);
 			path = StarWarsApp;
+			sourceTree = "<group>";
+		};
+		165191A625E5778A00BB591F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				165191A325E5777F00BB591F /* InfoView.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		165191A725E577A100BB591F /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				165191A825E577E600BB591F /* InfoViewController.swift */,
+			);
+			path = "Source Code";
+			sourceTree = "<group>";
+		};
+		165191AD25E57EC200BB591F /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				165191AE25E57F2000BB591F /* InfoTableViewCode.swift */,
+				165191AF25E57F2000BB591F /* InfoTableViewCell.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		165191B825E593D600BB591F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +220,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165191B125E57F2000BB591F /* InfoTableViewCell.xib in Resources */,
+				165191A425E5777F00BB591F /* InfoView.storyboard in Resources */,
 				1647C51625E5682F00AD690D /* LaunchScreen.storyboard in Resources */,
 				1647C51325E5682F00AD690D /* Assets.xcassets in Resources */,
 				1647C50E25E5682E00AD690D /* Main.storyboard in Resources */,
@@ -152,7 +235,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165191A925E577E600BB591F /* InfoViewController.swift in Sources */,
+				161DFF0225E6B39A00295955 /* APIRequest.swift in Sources */,
+				161DFF1625E6C8EE00295955 /* Starship.swift in Sources */,
+				161DFF1825E6C8EE00295955 /* People.swift in Sources */,
+				16DD0C9A25E7E572005D4922 /* Species.swift in Sources */,
 				1647C51125E5682E00AD690D /* StarWarsApp.xcdatamodeld in Sources */,
+				16DD0C9725E7D785005D4922 /* Planet.swift in Sources */,
+				1647C50B25E5682E00AD690D /* ViewController.swift in Sources */,
+				165191B025E57F2000BB591F /* InfoTableViewCode.swift in Sources */,
+				1647C50725E5682E00AD690D /* AppDelegate.swift in Sources */,
+				161DFF1225E6C8EE00295955 /* Film.swift in Sources */,
+				1647C50925E5682E00AD690D /* SceneDelegate.swift in Sources */,
+				16DD0C9D25E7E9DB005D4922 /* Vehicles.swift in Sources */,
 				2DB5E8E925E59AC6009B7F8E /* CollectionViewCell.swift in Sources */,
 				2D63FE0425E6E40B0082F27E /* CategoryViewController.swift in Sources */,
 				2D63FE0925E6E9B20082F27E /* HistoricViewController.swift in Sources */,
