@@ -22,9 +22,6 @@ class InfoViewController: UIViewController {
     
     let apiManager = APIManager()
     
-    var itemCategory: requestTypes? = nil
-    var itemID: Int = 0
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +34,7 @@ class InfoViewController: UIViewController {
         selectedPicture.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         selectedPicture.layer.cornerRadius = 25
         
-        apiManager.Request(requestType: itemCategory!, uid: itemID)
+        apiManager.Request(requestType: .planets, uid: 2)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: Notification.Name(rawValue: "JSON_OK"), object: nil)
     
