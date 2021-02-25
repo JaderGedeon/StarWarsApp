@@ -7,11 +7,17 @@
 
 import UIKit
 
-var category: Int = 0
+var category: requestTypes = .people
 
 class CollectionViewController: UICollectionViewController {
 
-    let categories: [String] = ["Personagens", "Espécies", "Naves", "Veículos", "Planetas", "Filmes"]
+    let categories: [requestTypes] = [requestTypes.people,
+                                requestTypes.species,
+                                requestTypes.starships,
+                                requestTypes.vehicles,
+                                requestTypes.planets,
+                                requestTypes.films]
+    
     let image = UIImage(named: "HanSolo")
     
     override func viewDidLoad() {
@@ -35,7 +41,7 @@ class CollectionViewController: UICollectionViewController {
         
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-            itemCell.configure(with: categories[indexPath.row], itemImage: image!)
+            itemCell.configure(with: categories[indexPath.row].rawValue, itemImage: image!)
             
             cell = itemCell
             cell.layer.cornerRadius = 25
@@ -47,7 +53,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        category = indexPath.row
+        category = categories[indexPath.row]
         performSegue(withIdentifier: "categories", sender: self)
     }
 }

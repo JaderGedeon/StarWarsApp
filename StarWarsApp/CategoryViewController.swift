@@ -11,17 +11,21 @@ class CategoryViewController: UICollectionViewController {
 
     var categories = [""]
     let image = UIImage(named: "HanSolo")
+    var id = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         switch category {
-        case 0:
+        case .people:
             categories = ["Han Solo", "Darth Vader", "Luke Skywalker", "Leia Organa"]
-        case 1:
+            
+        case .species:
             categories = ["Wookies", "Ewoks", "Twileks"]
-        case 2:
+            
+        case .starships:
             categories = ["Corvette", "Destroyer", "Millenium Falcom"]
+            
         default:
             print("failed to request")
         }
@@ -54,12 +58,24 @@ class CategoryViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        id = indexPath.row + 1
+        performSegue(withIdentifier: "InfoViewCat", sender: self)
+        
         if lastOpenedItens.contains(categories[indexPath.row]){
             return
         }else{
             lastOpenedItens.insert(categories[indexPath.row], at: 0)
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is InfoViewController {
+            let vc = segue.destination as? InfoViewController
+            vc?.itemCategory = category
+            vc?.itemID = id
+        }
     }
 
 }

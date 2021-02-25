@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum requestTypes {
-    case people
-    case films
-    case starships
-    case planets
-    case species
-    case vehicles
+enum requestTypes: String {
+    case people = "Personagens"
+    case films = "Filmes"
+    case starships = "Naves"
+    case planets = "Planetas"
+    case species = "Espécies"
+    case vehicles = "Veículos"
 }
 
 class APIManager {

@@ -150,10 +150,23 @@
                         <inset key="largeContentSizeImageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="XLr-1t-CkE"/>
+                    <connections>
+                        <segue destination="QYO-rp-95f" kind="show" identifier="InfoViewCat" id="khm-Wp-Lse"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nx-FT-uBu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3018.840579710145" y="-245.08928571428569"/>
+        </scene>
+        <!--InfoView-->
+        <scene sceneID="8Mf-UW-nrc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="InfoView" id="QYO-rp-95f" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2DB-mJ-G5i"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZI-7m-o4L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3631" y="-245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aFf-md-Gxp">
