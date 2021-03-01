@@ -10,7 +10,7 @@ import UIKit
 var category: requestTypes = .people
 
 class CollectionViewController: UICollectionViewController {
-
+    
     let categories: [requestTypes] = [requestTypes.people,
                                 requestTypes.species,
                                 requestTypes.starships,
@@ -24,7 +24,7 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
-        bgImageView.contentMode = .scaleAspectFit
+        bgImageView.contentMode = .scaleAspectFill
         
         self.collectionView.backgroundView = bgImageView
 
@@ -41,7 +41,9 @@ class CollectionViewController: UICollectionViewController {
         
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-            itemCell.configure(with: categories[indexPath.row].rawValue, itemImage: image!)
+                itemCell.configure(with: categories[indexPath.row].rawValue, itemImage: image!)
+            
+
             
             cell = itemCell
             cell.layer.cornerRadius = 25

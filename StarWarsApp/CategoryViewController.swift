@@ -7,18 +7,22 @@
 
 import UIKit
 
-class CategoryViewController: UICollectionViewController {
+class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
 
-    var categories = [""]
+    var categories: [String] = [""]
+    var searchedItens: [String] = [""]
     let image = UIImage(named: "HanSolo")
     var id = 0
+    
+    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var backBttn: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         switch category {
         case .people:
-            categories = ["Han Solo", "Darth Vader", "Luke Skywalker", "Leia Organa"]
+            categories = ["Han Vader", "Darth Vader", "Luke Skywalker", "Leia Vader"]
             
         case .species:
             categories = ["Wookies", "Ewoks", "Twileks"]
@@ -34,11 +38,18 @@ class CategoryViewController: UICollectionViewController {
         bgImageView.contentMode = .scaleAspectFit
         
         self.collectionView.backgroundView = bgImageView
+        searchBar.delegate = self
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return categories.count
+        if searchedItens.contains(""){
+            return categories.count
+        }
+        else{
+            return searchedItens.count
+        }
+        
     }
    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,7 +58,14 @@ class CategoryViewController: UICollectionViewController {
         
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-            itemCell.configure(with: categories[indexPath.row], itemImage: image!)
+            
+            if searchedItens.contains(""){
+                itemCell.configure(with: categories[indexPath.row], itemImage: image!)
+            }
+            else{
+                itemCell.configure(with: searchedItens[indexPath.row], itemImage: image!)
+            }
+            
             
             cell = itemCell
             cell.layer.cornerRadius = 25
@@ -76,6 +94,34 @@ class CategoryViewController: UICollectionViewController {
             vc?.itemCategory = category
             vc?.itemID = id
         }
+    }
+    
+    
+    // MARK:- UITextFieldDelegates
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        searchBar.resignFirstResponder()
+        self.searchedItens.removeAll()
+        for str in categories{
+            searchedItens.append(str)
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if searchBar.text?.count != 0{
+            self.searchedItens.removeAll()
+            
+            for str in categories{
+                let range = str.lowercased().range(of: searchBar.text!, options: .caseInsensitive, range: nil, locale: nil)
+                if range != nil {
+                    self.searchedItens.append(str)
+                }
+            }
+        }
+        
+        self.collectionView.reloadData()
+        return true
     }
 
 }
