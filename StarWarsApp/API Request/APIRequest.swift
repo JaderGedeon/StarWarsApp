@@ -21,6 +21,8 @@ class APIManager {
     var arrayOfTags:[String] = []
     var arrayOfAnswer:[String] = []
     
+    var infoTreatment = InfoTreatment()
+    
     public func Request(requestType: requestTypes, uid: Int){
         
         let urlString = "https://www.swapi.tech/api/\(requestType)/\(uid)"
@@ -67,8 +69,8 @@ class APIManager {
                     for (label, value) in conditionMirror!.children {
                         if value as? String != nil {
                             
-                            self.arrayOfTags.append(label!)
-                            self.arrayOfAnswer.append(value as! String)
+                            self.arrayOfTags.append(self.infoTreatment.treatRequest(type: requestType, requestString: label!))
+                            self.arrayOfAnswer.append(self.infoTreatment.treatRequest(type: requestType, requestString: value as! String))
                                            
                         }
                     }
