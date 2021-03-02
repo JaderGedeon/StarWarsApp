@@ -242,7 +242,6 @@
 				16DD0C9A25E7E572005D4922 /* Species.swift in Sources */,
 				1647C51125E5682E00AD690D /* StarWarsApp.xcdatamodeld in Sources */,
 				16DD0C9725E7D785005D4922 /* Planet.swift in Sources */,
-				1647C50B25E5682E00AD690D /* ViewController.swift in Sources */,
 				165191B025E57F2000BB591F /* InfoTableViewCode.swift in Sources */,
 				1647C50725E5682E00AD690D /* AppDelegate.swift in Sources */,
 				161DFF1225E6C8EE00295955 /* Film.swift in Sources */,
