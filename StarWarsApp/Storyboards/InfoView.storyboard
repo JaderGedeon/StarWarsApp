@@ -101,8 +101,8 @@
                     <connections>
                         <outlet property="height" destination="2JB-N7-hkA" id="hMG-ZG-3ds"/>
                         <outlet property="infoTableView" destination="d06-tm-SEl" id="toR-Z2-Kr1"/>
-                        <outlet property="selectedName" destination="aLJ-0N-m0i" id="HxC-wK-H8n"/>
-                        <outlet property="selectedPicture" destination="b8V-gy-pp1" id="1tF-Iy-D4l"/>
+                        <outlet property="itemImage" destination="b8V-gy-pp1" id="HCR-jx-e5t"/>
+                        <outlet property="titleName" destination="aLJ-0N-m0i" id="Yh6-Pb-zjw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zd-WO-Oc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

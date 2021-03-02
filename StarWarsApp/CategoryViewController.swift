@@ -10,12 +10,10 @@ import UIKit
 class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
 
     var starWarsItens : Array<StarWarsElement>!
-    
-    //var categories: [String] = [""]
-    //var searchedItens: [String] = [""]
-    //let image = UIImage(named: "HanSolo")
+
     var searchedItens : Array<StarWarsElement>! = []
-    var id = 0
+    
+    var selectedItem : StarWarsElement!
     
     var swList = StarWarsList()
     var api = APIManager()
@@ -27,20 +25,6 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         super.viewDidLoad()
         
         starWarsItens = swList.returnAllObjectsOfType(requestType: category)
-//
-//        switch category {
-//        case .people:
-//            categories = ["Han Vader", "Darth Vader", "Luke Skywalker", "Leia Vader"]
-//
-//        case .species:
-//            categories = ["Wookies", "Ewoks", "Twileks"]
-//
-//        case .starships:
-//            categories = ["Corvette", "Destroyer", "Millenium Falcom"]
-//
-//        default:
-//            print("failed to request")
-//        }
 
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
         bgImageView.contentMode = .scaleAspectFit
@@ -51,9 +35,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        //if searchedItens.contains(""){
         if searchBar.text?.count == 0 {
-//            return categories.count
             return starWarsItens.count
         }
         else{
@@ -68,10 +50,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-            
-            //if searchedItens.contains(""){
             if searchBar.text?.count == 0 {
-                //itemCell.configure(with: categories[indexPath.row], itemImage: image!)
                 itemCell.configure(with: starWarsItens[indexPath.row].name ?? "Null", itemImage: starWarsItens[indexPath.row].image)
             }
             else{
@@ -88,7 +67,8 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        id = starWarsItens[indexPath.row].apiID!
+        selectedItem = starWarsItens[indexPath.row]
+    
         performSegue(withIdentifier: "InfoViewCat", sender: self)
         
         if let index = lastOpenedItens.firstIndex(where: { (item) -> Bool in
@@ -105,8 +85,10 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         if segue.destination is InfoViewController {
             let vc = segue.destination as? InfoViewController
             
-            vc?.itemCategory = category
-            vc?.itemID = id
+            vc?.itemCategory = selectedItem.category
+            vc?.itemID = selectedItem.apiID!
+            vc?.selectedName = selectedItem.name ?? "Null"
+            vc?.selectedImage = selectedItem.image
         }
     }
     

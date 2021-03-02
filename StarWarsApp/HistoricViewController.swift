@@ -10,8 +10,8 @@ import UIKit
 var lastOpenedItens: Array<StarWarsElement>! = []
 
 class HistoricViewController: UICollectionViewController {
-    
-    let image = UIImage(named: "HanSolo")
+
+    var selectedItem : StarWarsElement!
     
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()
@@ -49,6 +49,32 @@ class HistoricViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        var tempItem : StarWarsElement!
+        
+        selectedItem = lastOpenedItens[indexPath.row]
+    
+        performSegue(withIdentifier: "histToInfo", sender: self)
+        
+        if let index = lastOpenedItens.firstIndex(where: { (item) -> Bool in
+            item.name == lastOpenedItens[indexPath.row].name
+        }) {
+            tempItem = lastOpenedItens[indexPath.row]
+            lastOpenedItens.remove(at: index)
+        }
+        
+        lastOpenedItens.insert(tempItem, at: 0)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is InfoViewController {
+            let vc = segue.destination as? InfoViewController
+            
+            vc?.itemCategory = selectedItem.category
+            vc?.itemID = selectedItem.apiID!
+            vc?.selectedName = selectedItem.name ?? "Null"
+            vc?.selectedImage = selectedItem.image
+        }
     }
 }
 

@@ -17,8 +17,11 @@ class InfoViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var selectedPicture: UIImageView!
-    @IBOutlet weak var selectedName: UILabel!
+    var selectedName : String = ""
+    var selectedImage : UIImage = #imageLiteral(resourceName: "Han Solo Teste")
+    
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var titleName: UILabel!
     
     @IBOutlet weak var height: NSLayoutConstraint!
     
@@ -31,13 +34,16 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedName.layer.masksToBounds = true
-        selectedName.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        selectedName.layer.cornerRadius = 25
+        itemImage.image = selectedImage
+        titleName.text = selectedName
         
-        selectedPicture.layer.masksToBounds = true
-        selectedPicture.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
-        selectedPicture.layer.cornerRadius = 25
+        titleName.layer.masksToBounds = true
+        titleName.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        titleName.layer.cornerRadius = 25
+        
+        itemImage.layer.masksToBounds = true
+        itemImage.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        itemImage.layer.cornerRadius = 25
         
         apiManager.Request(requestType: itemCategory!, uid: itemID)
         
