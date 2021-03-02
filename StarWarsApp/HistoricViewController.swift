@@ -7,7 +7,7 @@
 
 import UIKit
 
-var lastOpenedItens: [String] = [""]
+var lastOpenedItens: Array<StarWarsElement>! = []
 
 class HistoricViewController: UICollectionViewController {
     
@@ -36,12 +36,9 @@ class HistoricViewController: UICollectionViewController {
         
         var cell = UICollectionViewCell()
         
-        if lastOpenedItens[indexPath.row] == ""{
-        }
-        
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-            itemCell.configure(with: lastOpenedItens[indexPath.row], itemImage: image!)
+            itemCell.configure(with: lastOpenedItens[indexPath.row].name ?? "Null", itemImage: lastOpenedItens[indexPath.row].image)
             
             cell = itemCell
             cell.layer.cornerRadius = 25
