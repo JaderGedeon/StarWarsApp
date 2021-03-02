@@ -91,11 +91,13 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         id = starWarsItens[indexPath.row].apiID!
         performSegue(withIdentifier: "InfoViewCat", sender: self)
         
-        if !(lastOpenedItens.contains { (item) -> Bool in
+        if let index = lastOpenedItens.firstIndex(where: { (item) -> Bool in
             item.name == starWarsItens[indexPath.row].name
         }) {
-            lastOpenedItens.insert(starWarsItens[indexPath.row], at: 0)
+            lastOpenedItens.remove(at: index)
         }
+        
+        lastOpenedItens.insert(starWarsItens[indexPath.row], at: 0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
