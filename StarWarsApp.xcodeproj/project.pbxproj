@@ -11,6 +11,7 @@
 		161DFF1225E6C8EE00295955 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0725E6C8EE00295955 /* Film.swift */; };
 		161DFF1625E6C8EE00295955 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0C25E6C8EE00295955 /* Starship.swift */; };
 		161DFF1825E6C8EE00295955 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DFF0F25E6C8EE00295955 /* People.swift */; };
+		162354C025E9661700F19A99 /* Info Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162354BF25E9661700F19A99 /* Info Treatment.swift */; };
 		1647C50725E5682E00AD690D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647C50625E5682E00AD690D /* AppDelegate.swift */; };
 		1647C50925E5682E00AD690D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1647C50825E5682E00AD690D /* SceneDelegate.swift */; };
 		1647C50E25E5682E00AD690D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1647C50C25E5682E00AD690D /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		161DFF0725E6C8EE00295955 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		161DFF0C25E6C8EE00295955 /* Starship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 		161DFF0F25E6C8EE00295955 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		162354BF25E9661700F19A99 /* Info Treatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Info Treatment.swift"; sourceTree = "<group>"; };
 		1647C50325E5682E00AD690D /* StarWarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1647C50625E5682E00AD690D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1647C50825E5682E00AD690D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				161DFF0125E6B39A00295955 /* APIRequest.swift */,
+				162354BF25E9661700F19A99 /* Info Treatment.swift */,
 			);
 			path = "API Request";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				2D63FE0025E6CEC50082F27E /* TabBarController.swift in Sources */,
 				1647C50925E5682E00AD690D /* SceneDelegate.swift in Sources */,
 				2DB5E8E525E595E0009B7F8E /* CollectionViewController.swift in Sources */,
+				162354C025E9661700F19A99 /* Info Treatment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

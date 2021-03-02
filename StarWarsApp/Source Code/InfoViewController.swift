@@ -20,6 +20,8 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var selectedPicture: UIImageView!
     @IBOutlet weak var selectedName: UILabel!
     
+    @IBOutlet weak var height: NSLayoutConstraint!
+    
     let apiManager = APIManager()
     
     var itemCategory: requestTypes? = nil
@@ -43,21 +45,42 @@ class InfoViewController: UIViewController {
     
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     @objc func reloadTableView() {
         DispatchQueue.main.async {
+            
+            self.height.constant = 0
+
             self.infoTableView.reloadData()
+            
+            var rows = 0
+
+            for i in 0..<self.infoTableView.numberOfSections {
+                
+                print(i)
+                rows += self.infoTableView.numberOfRows(inSection: i)
+                
+            }
+            
+            self.height.constant = (self.infoTableView.cellForRow(at: IndexPath(item: 0, section: 0))?.frame.height ?? 0) * CGFloat(rows)
+            
         }
     }
 }
 
-extension InfoViewController:UITableViewDataSource {
+extension InfoViewController:UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return apiManager.arrayOfTags.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,6 +93,5 @@ extension InfoViewController:UITableViewDataSource {
         cell.backgroundColor = .clear
         
         return cell
-        
     }
 }
