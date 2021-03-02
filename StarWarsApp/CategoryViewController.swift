@@ -8,9 +8,9 @@
 import UIKit
 
 class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
-
+    
     var starWarsItens : Array<StarWarsElement>!
-
+    
     var searchedItens : Array<StarWarsElement>! = []
     
     var selectedItem : StarWarsElement!
@@ -25,7 +25,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         super.viewDidLoad()
         
         starWarsItens = swList.returnAllObjectsOfType(requestType: category)
-
+        
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
         bgImageView.contentMode = .scaleAspectFit
         
@@ -43,7 +43,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         }
         
     }
-   
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cell = UICollectionViewCell()
@@ -52,6 +52,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
             
             if searchBar.text?.count == 0 {
                 itemCell.configure(with: starWarsItens[indexPath.row].name ?? "Null", itemImage: starWarsItens[indexPath.row].image)
+                    
             }
             else{
                 itemCell.configure(with: searchedItens[indexPath.row].name ?? "Null", itemImage: searchedItens[indexPath.row].image)
@@ -68,7 +69,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         selectedItem = starWarsItens[indexPath.row]
-    
+        
         performSegue(withIdentifier: "InfoViewCat", sender: self)
         
         if let index = lastOpenedItens.firstIndex(where: { (item) -> Bool in
@@ -103,11 +104,11 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         }
         return true
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if searchBar.text?.count != 0{
             self.searchedItens.removeAll()
-
+            
             for item in starWarsItens{
                 let range = item.name!.lowercased().range(of: searchBar.text!, options: .caseInsensitive, range: nil, locale: nil)
                 if range != nil {
@@ -117,9 +118,9 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         } else {
             self.searchedItens.removeAll()
         }
-
+        
         self.collectionView.reloadData()
         return true
     }
-
+    
 }

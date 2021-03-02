@@ -10,6 +10,7 @@ import UIKit
 class StarWarsList {
     
     var list: Array<StarWarsElement> = [
+        
         StarWarsElement.init(name: "Luke Skywalker", cat: .people, apiID: 1, image: #imageLiteral(resourceName: "p1"), imgOrientation: .landscape),
         StarWarsElement.init(name: "C-3PO", cat: .people, apiID: 2, image: #imageLiteral(resourceName: "p2"), imgOrientation: .landscape),
         StarWarsElement.init(name: "R2-D2", cat: .people, apiID: 3, image: #imageLiteral(resourceName: "p3"), imgOrientation: .landscape),
