@@ -68,7 +68,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        selectedItem = starWarsItens[indexPath.row]
+        selectedItem = searchBar.text?.count == 0 ? starWarsItens[indexPath.row] : searchedItens[indexPath.row]
         
         performSegue(withIdentifier: "InfoViewCat", sender: self)
         
