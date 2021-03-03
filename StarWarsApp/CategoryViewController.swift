@@ -22,6 +22,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     let audioEngine = AVAudioEngine()
     let speechRecognizer = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
+    var task: SFSpeechRecognitionTask!
     var started: Bool = false
     
     
@@ -34,7 +35,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         
         
         voiceBttn.setImage(UIImage(named: "IconMicrophone-2"), for: .normal)
-        voiceBttn.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
+        voiceBttn.addTarget(self, action: #selector(startStopRecognizer), for: .touchUpInside)
         
         
 
@@ -152,23 +153,104 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         return true
     }
     
-//    MARK:- Voice Recognizer
+//    MARK:- Request Permission for microphone usage
     
     func requestPermission(){
         self.voiceBttn.isEnabled = false
         SFSpeechRecognizer.requestAuthorization { (authState) in
             OperationQueue.main.addOperation {
-                if authState == .authorized{
-                  print(("Accepted"))
+                
+                if authState == .authorized {
+                  print(("Accepted!"))
+                
+                }else if authState == .denied {
+                    self.alertView(message: "User denied usage.")
+                
+                }else if authState == .notDetermined {
+                    self.alertView(message: "User phone doesn't support voice recognition.")
+                
+                }else if authState == .restricted {
+                    self.alertView(message: "Usage of voice recognition is restricted on user phone.")
                 }
             }
         }
     }
     
+//    MARK:- Voice Recognizer
+    
+    @objc func startStopRecognizer(){
+        started = !started
+        
+        if started{
+            startVoiceRecognition()
+        } else {
+            stopVoiceRecognition()
+        }
+    }
+    
+     func startVoiceRecognition(){
+        let node = audioEngine.inputNode
+        let recordingFormat = node.outputFormat(forBus: 0)
+        
+        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) {
+            (buffer, _) in
+            self.request.append(buffer)
+        }
+        audioEngine.prepare()
+        do{
+            try audioEngine.start()
+        } catch _{
+            alertView(message: "Couldn't start audio engine.")
+        }
+        
+        guard let myRecognition = SFSpeechRecognizer() else {
+            self.alertView(message: "Voice recognition isn't allowed by your phone.")
+            return
+        }
+        
+        if !myRecognition.isAvailable{
+            self.alertView(message: "Recognition is busy right now, please try again later.")
+            
+        }
+        
+        task = speechRecognizer?.recognitionTask(with: request, resultHandler: { (response, error) in
+            guard let response = response else {
+                if error != nil {
+                    self.alertView(message: error!.localizedDescription)
+                } else {
+                    self.alertView(message: "Problem trying to give a response.")
+                }
+                return
+            }
+            
+            let message = response.bestTranscription.formattedString
+            self.searchBar.text = message
+            
+        })
+        
+    }
+    
+    func stopVoiceRecognition() {
+        task.finish()
+        task.cancel()
+        task = nil
+        
+        request.endAudio()
+        audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+    }
+    
+    
 //    MARK:- Alert Function
     
     func alertView(message: String){
         let controller =  UIAlertController.init(title: "Error ocurred..!", message: message, preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
+            (_) in
+            controller.dismiss(animated: true, completion: nil)
+        }))
+        self.present(controller, animated: true, completion: nil)
     }
     
 }
