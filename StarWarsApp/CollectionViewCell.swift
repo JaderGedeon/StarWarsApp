@@ -15,5 +15,12 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with itemName: String, itemImage: UIImage){
         itemLabel.text = itemName
         itemImageView.image = itemImage
+        if itemName == "C-3PO" {
+            itemLabel.accessibilityLabel = "c,3,p,o"
+        }else{
+            itemLabel.accessibilityLabel = itemName
+        }
+        
+        
     }
 }

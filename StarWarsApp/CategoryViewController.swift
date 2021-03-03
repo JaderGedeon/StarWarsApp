@@ -10,12 +10,11 @@ import Speech
 
 class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     
+//    MARK:- Variables
+    
     var starWarsItens : Array<StarWarsElement>!
-
     var searchedItens : Array<StarWarsElement>! = []
-    
     var selectedItem : StarWarsElement!
-    
     var swList = StarWarsList()
     var api = APIManager()
     
@@ -52,6 +51,8 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         searchBar.leftViewMode = .always
         searchBar.rightViewMode = .always
         searchBar.clipsToBounds = true
+        searchBar.accessibilityLabel = "Search Bar"
+        searchBar.rightView?.accessibilityLabel = "Search by voice"
         
     }
     
@@ -183,8 +184,10 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         started = !started
         
         if started{
+            voiceBttn.setImage(UIImage(named: "iconmicrophoneselected-2"), for: .normal)
             startVoiceRecognition()
         } else {
+            voiceBttn.setImage(UIImage(named: "IconMicrophone-2"), for: .normal)
             stopVoiceRecognition()
         }
     }
