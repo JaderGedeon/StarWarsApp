@@ -128,16 +128,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         searchBar.leftView?.isHidden = true
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        searchBar.resignFirstResponder()
-        self.searchedItens.removeAll()
-        for item in starWarsItens{
-            searchedItens.append(item)
-        }
-        return true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
         if searchBar.text?.count != 0{
             self.searchedItens.removeAll()
             
@@ -152,8 +143,34 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         }
         
         self.collectionView.reloadData()
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        searchBar.resignFirstResponder()
+        self.searchedItens.removeAll()
+        for item in starWarsItens{
+            searchedItens.append(item)
+        }
         return true
     }
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if searchBar.text?.count != 0{
+//            self.searchedItens.removeAll()
+//
+//            for item in starWarsItens{
+//                let range = item.name!.lowercased().range(of: searchBar.text!, options: .caseInsensitive, range: nil, locale: nil)
+//                if range != nil {
+//                    self.searchedItens.append(item)
+//                }
+//            }
+//        } else {
+//            self.searchedItens.removeAll()
+//        }
+//
+//        self.collectionView.reloadData()
+//        return true
+//    }
     
 //    MARK:- Request Permission for microphone usage
     
