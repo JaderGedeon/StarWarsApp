@@ -18,6 +18,7 @@ class NavigationViewController: UINavigationController {
         barAppearance.backIndicatorImage = backBttnImage
         barAppearance.backIndicatorTransitionMaskImage = backBttnImage
         barAppearance.tintColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+        navigationBar.backItem?.title = ""
         navigationBar.setBackgroundImage(_:UIImage(), for: .default)
         
         // Do any additional setup after loading the view.
