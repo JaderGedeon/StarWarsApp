@@ -127,7 +127,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Ql-6tS">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Ql-6tS">
                                             <rect key="frame" x="0.0" y="44" width="140" height="141"/>
                                         </imageView>
                                     </subviews>
@@ -262,6 +262,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="F8U-Ps-5m0"/>
+                    <connections>
+                        <segue destination="QYO-rp-95f" kind="show" identifier="histToInfo" id="aou-m6-83d"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6j-z7-7if" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,6 +292,9 @@
             <point key="canvasLocation" x="1308.6956521739132" y="521.65178571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="khm-Wp-Lse"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="IconHistoric-2" width="25" height="22"/>
         <image name="IconHistoricSelected-2" width="25" height="22.5"/>
