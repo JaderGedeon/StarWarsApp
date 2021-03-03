@@ -20,7 +20,9 @@ class InfoViewController: UIViewController {
     var selectedName : String = ""
     var selectedImage : UIImage = #imageLiteral(resourceName: "Han Solo Teste")
     
-    var favoritedItem : Bool = false
+    var savedInDB : Bool = false
+    
+    @IBOutlet weak var favButton: UIBarButtonItem!
     
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var titleName: UILabel!
@@ -36,8 +38,6 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //favoritedItem = éOuNão?
-        
         itemImage.image = selectedImage
         titleName.text = selectedName
         
@@ -49,35 +49,41 @@ class InfoViewController: UIViewController {
         itemImage.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         itemImage.layer.cornerRadius = 25
         
-        //if favoritedItem {
-            
-        //} else {
-            apiManager.Request(requestType: itemCategory!, uid: itemID)
-        //}
-        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: Notification.Name(rawValue: "JSON_OK"), object: nil)
+        
+        savedInDB = apiManager.Request(requestType: itemCategory!, uid: itemID, name: selectedName)
+        
+        if savedInDB {
+            favButton.image = UIImage.init(systemName: "bookmark.fill")
+        } else {
+            favButton.image = UIImage.init(systemName: "bookmark")
+        }
     
     }
     
     
     @IBAction func favoriteAnItem(_ sender: UIBarButtonItem) {
         
-        if favoritedItem {
+        if savedInDB {
             // Desfavoritar
-            sender.image = UIImage.init(systemName: "bookmark")
-            apiManager.requestDB.loadItem(name: selectedName, type: itemCategory!)
+            favButton.image = UIImage.init(systemName: "bookmark")
+            
+            apiManager.requestDB.deleteItem(name: selectedName)
             
         } else {
             // Favoritar
-            sender.image = UIImage.init(systemName: "bookmark.fill")
+            favButton.image = UIImage.init(systemName: "bookmark.fill")
+            
+            apiManager.requestDB.SaveItem(itemKey: apiManager.originalArrayOfTags, itemProperties: apiManager.arrayOfAnswer, name: selectedName)
             
         }
         
-        favoritedItem = !favoritedItem
+        savedInDB = !savedInDB
     }
     
     
     @objc func reloadTableView() {
+
         DispatchQueue.main.async {
             
             self.height.constant = 0

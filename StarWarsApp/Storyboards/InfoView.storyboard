@@ -107,6 +107,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="favButton" destination="VyF-2K-6bz" id="3qr-SG-p8v"/>
                         <outlet property="height" destination="2JB-N7-hkA" id="hMG-ZG-3ds"/>
                         <outlet property="infoTableView" destination="d06-tm-SEl" id="toR-Z2-Kr1"/>
                         <outlet property="itemImage" destination="b8V-gy-pp1" id="HCR-jx-e5t"/>

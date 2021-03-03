@@ -12,39 +12,29 @@ import UIKit
 class RequestDB {
     
     let db : NSManagedObjectContext
-    let tablePeople : NSEntityDescription?
+    let table : NSEntityDescription?
     
     init(){
         self.db = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        self.tablePeople = NSEntityDescription.entity(forEntityName: "PeopleDB", in: db)
+        self.table = NSEntityDescription.entity(forEntityName: "Entity", in: db)
     }
     
     // Save
     
-    func SaveItem(itemKey : [String], itemProperties : [String], type: requestTypes){
+    func SaveItem(itemKey : [String], itemProperties : [String], name: String){
         
-        var tableSelected : NSEntityDescription?
+        var arrayOfStrings : [String] = []
         
-        switch type {
-        case .people:
-            tableSelected = tablePeople
-        case .starships:
-            break
-        case .films:
-            break
-        case .planets:
-            break
-        case .species:
-            break
-        case .vehicles:
-            break
+        for (i,key) in itemKey.enumerated() {
+            
+            arrayOfStrings.append(key)
+            arrayOfStrings.append(itemProperties[i])
         }
         
-        let newRegister = NSManagedObject(entity: tableSelected!, insertInto: db)
-        
-        for (index,key) in itemKey.enumerated() {
-            newRegister.setValue(itemProperties[index], forKey: key)
-        }
+        let newRegister = NSManagedObject(entity: self.table!, insertInto: db)
+            
+        newRegister.setValue(name, forKey: "name")
+        newRegister.setValue(arrayOfStrings, forKey: "strings")
         
         do{
             try db.save()
@@ -56,9 +46,12 @@ class RequestDB {
     
     // Load
     
-    func loadItem(name: String, type: requestTypes){
+    func loadItem(name: String) -> Array<[String]>{
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PeopleDB")
+        var arrayOfKeys : [String] = []
+        var arrayOfValues : [String] = []
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
         
         request.predicate = NSPredicate(format: "name like %@", name)
         
@@ -67,19 +60,31 @@ class RequestDB {
             
             for itemData in consult as! [NSManagedObject]{
                 
-                print(itemData.value(forKey: "name") as! String)
-                print(itemData.value(forKey: "gender") as! String)
-                
-                //                let idRoupa = dados.value(forKey: "id") as! Int
-                //                let nomeRoupa = dados.value(forKey: "nome") as! String
-                //                let tipoRoupa = dados.value(forKey: "tipo") as! String
-                //                let imagemRoupaBD = dados.value(forKey: "imagem") as! Data
-                //                let categoriaRoupaBD = dados.value(forKey: "categoria") as? [String] ?? [""]
+                let strings = itemData.value(forKey: "strings") as? [String] ?? [""]
+
+                arrayOfKeys = stride(from: 0, to: strings.count, by: 2).map { strings[$0] }
+                arrayOfValues = stride(from: 1, to: strings.count, by: 2).map { strings[$0] }
                 
             }
+            
         } catch {
             print("Erro ao carregar")
         }
-        //        return matrizRoupas
+        return [arrayOfKeys,arrayOfValues]
+    }
+    
+    func deleteItem(name: String) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        
+        request.predicate = NSPredicate(format: "name like %@", name)
+        
+        let delete = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try db.execute(delete)
+        } catch {
+            print("Erro ao apagar todos os registros")
+        }
     }
 }
