@@ -33,6 +33,7 @@
 		2D63FE0925E6E9B20082F27E /* HistoricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D63FE0825E6E9B20082F27E /* HistoricViewController.swift */; };
 		2DB5E8E525E595E0009B7F8E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5E8E425E595E0009B7F8E /* CollectionViewController.swift */; };
 		2DB5E8E925E59AC6009B7F8E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5E8E825E59AC6009B7F8E /* CollectionViewCell.swift */; };
+		2DF0D16225EEB8BC0093EA61 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF0D16125EEB8BC0093EA61 /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		2D63FE0825E6E9B20082F27E /* HistoricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewController.swift; sourceTree = "<group>"; };
 		2DB5E8E425E595E0009B7F8E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2DB5E8E825E59AC6009B7F8E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2DF0D16125EEB8BC0093EA61 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				165191A725E577A100BB591F /* Source Code */,
 				165191A625E5778A00BB591F /* Storyboards */,
 				1647C50625E5682E00AD690D /* AppDelegate.swift */,
+				2DF0D16125EEB8BC0093EA61 /* NavigationViewController.swift */,
 				1647C50825E5682E00AD690D /* SceneDelegate.swift */,
 				2D63FDFF25E6CEC50082F27E /* TabBarController.swift */,
 				2DB5E8E825E59AC6009B7F8E /* CollectionViewCell.swift */,
@@ -260,6 +263,7 @@
 				161DFF0225E6B39A00295955 /* APIRequest.swift in Sources */,
 				16C059FF25EE6F3D00D80F0F /* ElementList.swift in Sources */,
 				16C059FC25EE6BC700D80F0F /* StarWarsElement.swift in Sources */,
+				2DF0D16225EEB8BC0093EA61 /* NavigationViewController.swift in Sources */,
 				161DFF1625E6C8EE00295955 /* Starship.swift in Sources */,
 				161DFF1825E6C8EE00295955 /* People.swift in Sources */,
 				16DD0C9A25E7E572005D4922 /* Species.swift in Sources */,
