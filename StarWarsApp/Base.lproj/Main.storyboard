@@ -40,11 +40,11 @@
                             <size key="itemSize" width="140" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="42" minY="90" maxX="46" maxY="0.0"/>
+                            <inset key="sectionInset" minX="42" minY="40" maxX="46" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="y8O-gc-bjB" customClass="CollectionViewCell" customModule="StarWarsApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="98" width="140" height="185"/>
+                                <rect key="frame" x="50" y="48" width="140" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Oh-Qs-DxP">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="185"/>
@@ -111,11 +111,11 @@
                             <size key="itemSize" width="140" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="42" minY="90" maxX="46" maxY="0.0"/>
+                            <inset key="sectionInset" minX="42" minY="40" maxX="46" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="b8F-8t-Rlu" customClass="CollectionViewCell" customModule="StarWarsApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="98" width="140" height="185"/>
+                                <rect key="frame" x="50" y="48" width="140" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zfi-j7-DaU">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="185"/>
@@ -127,7 +127,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Ql-6tS">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Ql-6tS">
                                             <rect key="frame" x="0.0" y="44" width="140" height="141"/>
                                         </imageView>
                                     </subviews>
@@ -219,11 +219,11 @@
                             <size key="itemSize" width="140" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="42" minY="90" maxX="46" maxY="0.0"/>
+                            <inset key="sectionInset" minX="42" minY="40" maxX="46" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="jOO-7Q-ICD" customClass="CollectionViewCell" customModule="StarWarsApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="98" width="140" height="185"/>
+                                <rect key="frame" x="50" y="48" width="140" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DWO-Eq-ogs">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="185"/>
@@ -263,6 +263,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="F8U-Ps-5m0"/>
+                    <connections>
+                        <segue destination="QYO-rp-95f" kind="show" identifier="histToInfo" id="aou-m6-83d"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6j-z7-7if" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,6 +293,9 @@
             <point key="canvasLocation" x="1308.6956521739132" y="521.65178571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="khm-Wp-Lse"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="IconHistoric-2" width="25" height="22"/>
         <image name="IconHistoricSelected-2" width="25" height="22.5"/>
