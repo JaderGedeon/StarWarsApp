@@ -40,11 +40,11 @@
                             <size key="itemSize" width="140" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="42" minY="90" maxX="46" maxY="0.0"/>
+                            <inset key="sectionInset" minX="42" minY="40" maxX="46" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="y8O-gc-bjB" customClass="CollectionViewCell" customModule="StarWarsApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="98" width="140" height="185"/>
+                                <rect key="frame" x="50" y="48" width="140" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Oh-Qs-DxP">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="185"/>
@@ -111,11 +111,11 @@
                             <size key="itemSize" width="140" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="42" minY="90" maxX="46" maxY="0.0"/>
+                            <inset key="sectionInset" minX="42" minY="40" maxX="46" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="b8F-8t-Rlu" customClass="CollectionViewCell" customModule="StarWarsApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="98" width="140" height="185"/>
+                                <rect key="frame" x="50" y="48" width="140" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zfi-j7-DaU">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="185"/>
@@ -159,15 +159,14 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="XLr-1t-CkE">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="k1U-Zq-LkT">
+                        <textField key="titleView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="24" clearButtonMode="whileEditing" id="k1U-Zq-LkT">
                             <rect key="frame" x="62.5" y="5" width="289" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                         </textField>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBttn" destination="XLr-1t-CkE" id="GkA-TT-mJV"/>
                         <outlet property="searchBar" destination="k1U-Zq-LkT" id="fwW-fU-yyo"/>
                         <segue destination="QYO-rp-95f" kind="show" identifier="InfoViewCat" id="khm-Wp-Lse"/>
                     </connections>
@@ -186,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="3631" y="-245"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="aFf-md-Gxp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OIC-G2-5PS" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OIC-G2-5PS" customClass="NavigationViewController" customModule="StarWarsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="IconHome-2" selectedImage="IconHomeSelected-2" id="tCV-AP-jgm">
                         <inset key="largeContentSizeImageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
@@ -219,11 +218,11 @@
                             <size key="itemSize" width="140" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="42" minY="90" maxX="46" maxY="0.0"/>
+                            <inset key="sectionInset" minX="42" minY="40" maxX="46" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="jOO-7Q-ICD" customClass="CollectionViewCell" customModule="StarWarsApp" customModuleProvider="target">
-                                <rect key="frame" x="50" y="98" width="140" height="185"/>
+                                <rect key="frame" x="50" y="48" width="140" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DWO-Eq-ogs">
                                     <rect key="frame" x="0.0" y="0.0" width="140" height="185"/>

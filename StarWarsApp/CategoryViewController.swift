@@ -6,52 +6,59 @@
 //
 
 import UIKit
+import Speech
 
 class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
 
     var starWarsItens : Array<StarWarsElement>!
-    
-    //var categories: [String] = [""]
-    //var searchedItens: [String] = [""]
-    //let image = UIImage(named: "HanSolo")
     var searchedItens : Array<StarWarsElement>! = []
     var id = 0
     
     var swList = StarWarsList()
     var api = APIManager()
     
+    let voiceBttn = UIButton(type: .custom)
+    
+    let audioEngine = AVAudioEngine()
+    let speechRecognizer = SFSpeechRecognizer()
+    let request = SFSpeechAudioBufferRecognitionRequest()
+    var started: Bool = false
+    
+    
     @IBOutlet weak var searchBar: UITextField!
-    @IBOutlet weak var backBttn: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         starWarsItens = swList.returnAllObjectsOfType(requestType: category)
-//
-//        switch category {
-//        case .people:
-//            categories = ["Han Vader", "Darth Vader", "Luke Skywalker", "Leia Vader"]
-//
-//        case .species:
-//            categories = ["Wookies", "Ewoks", "Twileks"]
-//
-//        case .starships:
-//            categories = ["Corvette", "Destroyer", "Millenium Falcom"]
-//
-//        default:
-//            print("failed to request")
-//        }
+        
+        
+        voiceBttn.setImage(UIImage(named: "IconMicrophone-2"), for: .normal)
+        voiceBttn.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
+        
+        
 
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
         bgImageView.contentMode = .scaleAspectFit
-        
         self.collectionView.backgroundView = bgImageView
+        
+        
         searchBar.delegate = self
+        searchBar.layer.cornerRadius = searchBar.frame.size.height/2
+        searchBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
+        searchBar.textColor = .white
+        searchBar.leftView = UIImageView(image: UIImage(named: "IconSearch-2"))
+        searchBar.rightView = voiceBttn
+        searchBar.leftViewMode = .always
+        searchBar.rightViewMode = .always
+        searchBar.clipsToBounds = true
+        
     }
+    
+//    MARK:- CollectionView
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        //if searchedItens.contains(""){
         if searchBar.text?.count == 0 {
 //            return categories.count
             return starWarsItens.count
@@ -98,6 +105,8 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         }
     }
     
+//    MARK:- Segue Itens
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is InfoViewController {
@@ -110,6 +119,11 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     
     
     // MARK:- UITextFieldDelegates
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        searchBar.leftView?.isHidden = true
+    }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         searchBar.resignFirstResponder()
@@ -137,5 +151,24 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         self.collectionView.reloadData()
         return true
     }
-
+    
+//    MARK:- Voice Recognizer
+    
+    func requestPermission(){
+        self.voiceBttn.isEnabled = false
+        SFSpeechRecognizer.requestAuthorization { (authState) in
+            OperationQueue.main.addOperation {
+                if authState == .authorized{
+                  print(("Accepted"))
+                }
+            }
+        }
+    }
+    
+//    MARK:- Alert Function
+    
+    func alertView(message: String){
+        let controller =  UIAlertController.init(title: "Error ocurred..!", message: message, preferredStyle: .alert)
+    }
+    
 }
