@@ -94,10 +94,6 @@ class StarWarsList {
         StarWarsElement.init(name: "Sly Moore", cat: .people, apiID: 82, image: #imageLiteral(resourceName: "p82"), imgOrientation: .landscape),
         StarWarsElement.init(name: "Tion Medon", cat: .people, apiID: 83, image: #imageLiteral(resourceName: "p83"), imgOrientation: .landscape),
         
-        
-        
-        
-        
         StarWarsElement.init(name: "Terra", cat: .planets, apiID: 1, image: #imageLiteral(resourceName: "IconHomeSelected-2"), imgOrientation: .landscape)
     ]
     
