@@ -20,6 +20,8 @@ class InfoViewController: UIViewController {
     var selectedName : String = ""
     var selectedImage : UIImage = #imageLiteral(resourceName: "Han Solo Teste")
     
+    var favoritedItem : Bool = false
+    
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var titleName: UILabel!
     
@@ -34,6 +36,8 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //favoritedItem = éOuNão?
+        
         itemImage.image = selectedImage
         titleName.text = selectedName
         
@@ -45,11 +49,33 @@ class InfoViewController: UIViewController {
         itemImage.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         itemImage.layer.cornerRadius = 25
         
-        apiManager.Request(requestType: itemCategory!, uid: itemID)
+        //if favoritedItem {
+            
+        //} else {
+            apiManager.Request(requestType: itemCategory!, uid: itemID)
+        //}
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: Notification.Name(rawValue: "JSON_OK"), object: nil)
     
     }
+    
+    
+    @IBAction func favoriteAnItem(_ sender: UIBarButtonItem) {
+        
+        if favoritedItem {
+            // Desfavoritar
+            sender.image = UIImage.init(systemName: "bookmark")
+            apiManager.requestDB.loadItem(name: selectedName, type: itemCategory!)
+            
+        } else {
+            // Favoritar
+            sender.image = UIImage.init(systemName: "bookmark.fill")
+            
+        }
+        
+        favoritedItem = !favoritedItem
+    }
+    
     
     @objc func reloadTableView() {
         DispatchQueue.main.async {
@@ -61,8 +87,7 @@ class InfoViewController: UIViewController {
             var rows = 0
 
             for i in 0..<self.infoTableView.numberOfSections {
-                
-                print(i)
+
                 rows += self.infoTableView.numberOfRows(inSection: i)
                 
             }
