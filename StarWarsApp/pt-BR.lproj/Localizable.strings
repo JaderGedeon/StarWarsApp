@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  StarWarsApp
+
+  Created by Denys Roger on 03/03/21.
+  
+*/
+
+"name" = "Nome"
+"birth_year" = "Ano de nascimento"
+"eye_color" = "Cor dos olhos"
+"gender" = "Sexo"
+"hair_color" = "Cor do cabelo"
+"height" = "Altura"
+"mass" = "Massa"
+"skin_color" = "Cor da pele"
+"homeworld" = "Planeta natal"
+"diameter" = "Diâmetro"
+"gravity" = "Gravidade"
+"population" = "População"
+"climate" = "Clima"
+"terrain" = "Terreno"
+// movies
+"title" = "Título"
+"episode_id" = "Episódio número"
+"opening_crawl" = "Introdução inicial"
+"director" = "Diretor"
+"producer" = "Produtor"
+"release_date" = "Data de lançamento"
+"species" = "Espécies"
+"starships" = "Naves"
+"vehicles" = "Veículos"
+"characters" = "Personagens"
+"planets" = "Planetas"
+//starships
+"model" = "Modelo"
+"starship_class" = "Classe"
+"manufacturer" = "Fabricante"
+"cost_in_credits" = "Custo em créditos"
+"length" = "Comprimento"
+"crew" = "Tripulação"
+"passengers" = "Passageiros"
+"max_atmosphering_speed" = "Velocidade atmosférica máxima"
+"hyperdrive_rating" = "Classe do hiperdrive"
+"MGLT" = "Megalights (Velocidade máxima)"
+"cargo_capacity" = "Capacidade de carga"
+"consumables" = "Consumiveis"
+"films" = "Filmes"
+"pilots" = "Pilotos"
+//species
+"classification" = "Classificação"
+"designation" = "Designação"
+"averageHeight" = "Altura média"
+"averageLifespan" = "Tempo de vida médio"
+"eyeColors" = "Cores dos olhos (mais comuns)"
+"hairColors" = "Cores de cabelo (mais comuns)"
+"skinColors" = "Cores da pele"
+"language" = "Língua"
+"people" = "Personagens"
+//vehicles = same as starships
+

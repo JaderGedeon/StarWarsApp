@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QpO-bB-Yzz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Info View Controller-->
+        <scene sceneID="tQ6-6M-Ha2">
+            <objects>
+                <viewController id="QpO-bB-Yzz" customClass="InfoViewController" customModule="StarWarsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fkn-9o-wlB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="fu9-As-TfZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yh-CY-VS7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCA-YG-waE" userLabel="ViewInScroll">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d06-tm-SEl">
+                                                <rect key="frame" x="36" y="400" width="341" height="185"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="1" constant="185" id="2JB-N7-hkA"/>
+                                                </constraints>
+                                                <color key="separatorColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="QpO-bB-Yzz" id="Liy-tN-JAg"/>
+                                                    <outlet property="delegate" destination="QpO-bB-Yzz" id="IfE-12-OsP"/>
+                                                </connections>
+                                            </tableView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VF5-Mc-59y">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Han Solo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLJ-0N-m0i">
+                                                        <rect key="frame" x="53" y="50" width="308" height="54"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.10394370719178082" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Han Solo Teste" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-gy-pp1">
+                                                        <rect key="frame" x="53" y="102" width="308" height="265"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="400" id="0L7-Xn-fot"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="VF5-Mc-59y" secondAttribute="trailing" id="Oo3-Ri-kz9"/>
+                                            <constraint firstItem="d06-tm-SEl" firstAttribute="leading" secondItem="tCA-YG-waE" secondAttribute="leading" constant="36" id="SuD-rr-ahb"/>
+                                            <constraint firstItem="VF5-Mc-59y" firstAttribute="leading" secondItem="tCA-YG-waE" secondAttribute="leading" id="aim-KL-nMf"/>
+                                            <constraint firstAttribute="trailing" secondItem="d06-tm-SEl" secondAttribute="trailing" constant="37" id="au3-UI-jwy"/>
+                                            <constraint firstAttribute="bottom" secondItem="d06-tm-SEl" secondAttribute="bottom" id="s2d-du-mlx"/>
+                                            <constraint firstItem="d06-tm-SEl" firstAttribute="top" secondItem="VF5-Mc-59y" secondAttribute="bottom" id="x18-Ip-iBE"/>
+                                            <constraint firstItem="VF5-Mc-59y" firstAttribute="top" secondItem="tCA-YG-waE" secondAttribute="top" id="y5Z-Vx-7k8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tCA-YG-waE" firstAttribute="top" secondItem="2Yh-CY-VS7" secondAttribute="top" id="RLc-Eo-qPa"/>
+                                    <constraint firstItem="tCA-YG-waE" firstAttribute="width" secondItem="2Yh-CY-VS7" secondAttribute="width" id="Y4S-VG-Svk"/>
+                                    <constraint firstItem="tCA-YG-waE" firstAttribute="leading" secondItem="2Yh-CY-VS7" secondAttribute="leading" id="cr8-V2-9E2"/>
+                                    <constraint firstAttribute="trailing" secondItem="tCA-YG-waE" secondAttribute="trailing" id="fVz-bh-4rz"/>
+                                    <constraint firstAttribute="bottom" secondItem="tCA-YG-waE" secondAttribute="bottom" id="ibg-Ax-9LS"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="nUH-8s-rDI"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="5VY-z0-y4r"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="04h-T0-mSm"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="2Yh-CY-VS7" firstAttribute="trailing" secondItem="04h-T0-mSm" secondAttribute="trailing" id="Hwu-aB-v1j"/>
+                            <constraint firstItem="2Yh-CY-VS7" firstAttribute="top" secondItem="04h-T0-mSm" secondAttribute="top" id="Tii-UT-tFn"/>
+                            <constraint firstItem="2Yh-CY-VS7" firstAttribute="bottom" secondItem="04h-T0-mSm" secondAttribute="bottom" id="cad-rs-mDx"/>
+                            <constraint firstItem="2Yh-CY-VS7" firstAttribute="leading" secondItem="04h-T0-mSm" secondAttribute="leading" id="mth-fj-k9S"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6ot-SE-n4q">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bookmark" catalog="system" id="VyF-2K-6bz" userLabel="Favorite">
+                            <connections>
+                                <action selector="favoriteAnItem:" destination="QpO-bB-Yzz" id="hEu-xf-BNi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="favButton" destination="VyF-2K-6bz" id="3qr-SG-p8v"/>
+                        <outlet property="height" destination="2JB-N7-hkA" id="hMG-ZG-3ds"/>
+                        <outlet property="infoTableView" destination="d06-tm-SEl" id="toR-Z2-Kr1"/>
+                        <outlet property="itemImage" destination="b8V-gy-pp1" id="HCR-jx-e5t"/>
+                        <outlet property="titleName" destination="aLJ-0N-m0i" id="Yh6-Pb-zjw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zd-WO-Oc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2336.231884057971" y="-196.20535714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BackGround" width="1243" height="2689"/>
+        <image name="Han Solo Teste" width="360" height="450"/>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
