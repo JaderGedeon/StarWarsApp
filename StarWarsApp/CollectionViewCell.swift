@@ -14,6 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configure(with itemName: String, itemImage: UIImage){
         
+        
         itemLabel.adjustsFontForContentSizeCategory = true
         itemLabel.text = itemName
         itemImageView.image = itemImage
