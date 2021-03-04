@@ -32,7 +32,7 @@ class RequestDB {
         }
         
         let newRegister = NSManagedObject(entity: self.table!, insertInto: db)
-            
+        
         newRegister.setValue(name, forKey: "name")
         newRegister.setValue(arrayOfStrings, forKey: "strings")
         
@@ -61,7 +61,7 @@ class RequestDB {
             for itemData in consult as! [NSManagedObject]{
                 
                 let strings = itemData.value(forKey: "strings") as? [String] ?? [""]
-
+                
                 arrayOfKeys = stride(from: 0, to: strings.count, by: 2).map { strings[$0] }
                 arrayOfValues = stride(from: 1, to: strings.count, by: 2).map { strings[$0] }
                 
@@ -87,4 +87,27 @@ class RequestDB {
             print("Erro ao apagar todos os registros")
         }
     }
+    
+    func loadAllItems() -> [String] {
+        
+        var itensInDB : [String] = []
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        
+        do{
+            let consult = try db.fetch(request)
+            
+            for itemData in consult as! [NSManagedObject]{
+                
+                itensInDB.append((itemData.value(forKey: "name") as! String))
+
+            }
+            
+        } catch {
+            print("Erro ao carregar")
+        }
+        print(itensInDB)
+        return itensInDB
+    }
+
 }
