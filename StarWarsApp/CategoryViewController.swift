@@ -246,12 +246,24 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
             
             let message = response.bestTranscription.formattedString
             self.searchBar.text = message
+            self.searchedItens.removeAll()
+            
+            for item in self.starWarsItens{
+                let range = item.name!.lowercased().range(of: self.searchBar.text!, options: .caseInsensitive, range: nil, locale: nil)
+                if range != nil {
+                    self.searchedItens.append(item)
+                }
+            }
+            self.collectionView.reloadData()
+            
+            print(node)
             
         })
         
     }
     
     func stopVoiceRecognition() {
+        
         task.finish()
         task.cancel()
         task = nil
