@@ -123,11 +123,15 @@ extension InfoViewController:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = infoTableView.dequeueReusableCell(withIdentifier: "IdInfoCell") as! InfoTableViewCode
+//        var infoText = String()
+        print(apiManager.arrayOfTags[indexPath.row])
         
-        cell.apiTag.text = apiManager.arrayOfTags[indexPath.row]
+        cell.apiTag.text = apiManager.arrayOfTags[indexPath.row] 
         cell.apiAnswer.text = apiManager.arrayOfAnswer[indexPath.row]
         
         cell.backgroundColor = .clear
+        cell.apiTag.accessibilityLabel = apiManager.arrayOfTags[indexPath.row]
+        cell.apiAnswer.accessibilityLabel = apiManager.arrayOfAnswer[indexPath.row]
         
         return cell
     }
