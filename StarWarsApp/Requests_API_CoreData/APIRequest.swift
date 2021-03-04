@@ -34,6 +34,9 @@ class APIManager {
         if !arrayFromDB[0].isEmpty {
             // Carrega do banco
             
+            print(arrayFromDB[0])
+            print(arrayFromDB[1])
+            
             for (index,key) in arrayFromDB[0].enumerated() {
                 if arrayFromDB[1][index] != "" {
                     
@@ -42,6 +45,7 @@ class APIManager {
                     self.originalArrayOfAnswer.append(arrayFromDB[1][index])
                     
                     self.arrayOfTags.append(NSLocalizedString(key, comment: ""))
+                    
                     for (index, i) in (arrayFromDB[1][index]).components(separatedBy: ", ").enumerated(){
                         
                         if index > 0{
@@ -50,13 +54,15 @@ class APIManager {
                         else{
                             localizedStr = (NSLocalizedString(i, comment: ""))
                         }
+                    }
+                    
+                    self.arrayOfAnswer.append(localizedStr)
+                    
                 }
+                
+                NotificationCenter.default.post(name: Notification.Name("JSON_OK"), object: nil)
             }
-            
-            NotificationCenter.default.post(name: Notification.Name("JSON_OK"), object: nil)
-            
             return true
-            }
         } else {
             // API
             
@@ -122,8 +128,8 @@ class APIManager {
                                     
                                 }
                                 self.arrayOfAnswer.append(localizedStr)
-//                                self.arrayOfAnswer.append(NSLocalizedString((value as! String), comment: ""))
-                            
+                                //                                self.arrayOfAnswer.append(NSLocalizedString((value as! String), comment: ""))
+                                
                             }
                         }
                         
