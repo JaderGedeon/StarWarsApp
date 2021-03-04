@@ -34,13 +34,13 @@ struct PeopleProperties: Codable {
     var height: String? // The height of the person in centimeters.
     var mass: String? // The mass of the person in kilograms.
     var skin_color: String? //The skin color of this person.
-    var homeworld: String? // The URL of a planet resource, a planet that this person was born on or inhabits.
-    var films: [String]? // An array of film resource URLs that this person has been in.
-    var species: [String]? // An array of species resource URLs that this person belongs to.
-    var starships: [String]? // An array of starship resource URLs that this person has piloted.
-    var vehicles: [String]? // An array of vehicle resource URLs that this person has piloted.
-    var url: String? // the hypermedia URL of this resource.
-    var created: String? // the ISO 8601 date format of the time that this resource was created.
-    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
+//    var homeworld: String? // The URL of a planet resource, a planet that this person was born on or inhabits.
+//    var films: [String]? // An array of film resource URLs that this person has been in.
+//    var species: [String]? // An array of species resource URLs that this person belongs to.
+//    var starships: [String]? // An array of starship resource URLs that this person has piloted.
+//    var vehicles: [String]? // An array of vehicle resource URLs that this person has piloted.
+    //var url: String? // the hypermedia URL of this resource.
+    //var created: String? // the ISO 8601 date format of the time that this resource was created.
+    //var edited: String? // the ISO 8601 date format of the time that this resource was edited.
 
 }

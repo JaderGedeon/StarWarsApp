@@ -98,7 +98,18 @@ class InfoViewController: UIViewController {
                 
             }
             
-            self.height.constant = (self.infoTableView.cellForRow(at: IndexPath(item: 0, section: 0))?.frame.height ?? 0) * CGFloat(rows)
+            if self.itemCategory != .films {
+                
+                self.height.constant = (self.infoTableView.cellForRow(at: IndexPath(item: 0, section: 0))?.frame.height ?? 0) * CGFloat(rows)
+                
+            } else {
+                
+                self.height.constant = (self.infoTableView.cellForRow(at: IndexPath(item: 0, section: 0))?.frame.height ?? 0) * CGFloat(rows-1)
+                self.height.constant += (self.infoTableView.cellForRow(at: IndexPath(item: 1, section: 0))?.frame.height ?? 0)
+                
+            }
+            
+            
             
         }
     }
