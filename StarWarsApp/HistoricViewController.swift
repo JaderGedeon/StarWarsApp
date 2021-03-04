@@ -21,7 +21,7 @@ class HistoricViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
-        bgImageView.contentMode = .scaleAspectFit
+        bgImageView.contentMode = .scaleAspectFill
         
         self.collectionView.backgroundView = bgImageView
         

@@ -18,7 +18,7 @@ class CollectionViewController: UICollectionViewController {
                                 requestTypes.planets,
                                 requestTypes.films]
     
-    let image = UIImage(named: "HanSolo")
+    let imageArray = [UIImage(named: "iconPeople"), UIImage(named: "iconSpecies"), UIImage(named: "iconStarships"), UIImage(named: "iconVehicles"), UIImage(named: "iconPlanets"), UIImage(named: "iconMovies")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +39,10 @@ class CollectionViewController: UICollectionViewController {
         
         var cell = UICollectionViewCell()
         
+        
         if let itemCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionViewCell {
             
-                itemCell.configure(with: categories[indexPath.row].rawValue, itemImage: image!)
+            itemCell.configure(with: categories[indexPath.row].rawValue, itemImage: imageArray[indexPath.row]!)
             
 
             
