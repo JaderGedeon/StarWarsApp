@@ -35,10 +35,10 @@ struct PlanetProperties: Codable {
     var climate: String? // The climate of this planet. Comma separated if diverse.
     var terrain: String? // The terrain of this planet. Comma separated if diverse.
     var surfaceWater: String? // The percentage of the planet surface that is naturally occurring water or bodies of water.
-    var residents: [String]? // An array of People URL Resources that live on this planet.
-    var films: [String]? // An array of Film URL Resources that this planet has appeared in.
-    var url: String? // the hypermedia URL of this resource.
-    var created: String? // the ISO 8601 date format of the time that this resource was created.
-    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
+//    var residents: [String]? // An array of People URL Resources that live on this planet.
+//    var films: [String]? // An array of Film URL Resources that this planet has appeared in.
+//    var url: String? // the hypermedia URL of this resource.
+//    var created: String? // the ISO 8601 date format of the time that this resource was created.
+//    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
     
 }

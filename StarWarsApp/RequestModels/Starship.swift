@@ -39,10 +39,10 @@ struct StarshipProperties: Codable {
     var MGLT: String? // he Maximum number of Megalights this starship can travel in a standard hour. A "Megalight" is a standard unit of distance and has never been defined before within the Star Wars universe. This figure is only really useful for measuring the difference in speed of starships. We can assume it is similar to AU, the distance between our Sun (Sol) and Earth.
     var cargo_capacity: String? // The maximum number of kilograms that this starship can transport.
     var consumables: String? // The maximum length of time that this starship can provide consumables for its entire crew without having to resupply.
-    var films: [String]? // An array of Film URL Resources that this starship has appeared in.
-    var pilots: [String]? // An array of People URL Resources that this starship has been piloted by.
-    var url: String? // the hypermedia URL of this resource.
-    var created: String? // the ISO 8601 date format of the time that this resource was created.
-    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
+//    var films: [String]? // An array of Film URL Resources that this starship has appeared in.
+//    var pilots: [String]? // An array of People URL Resources that this starship has been piloted by.
+//    var url: String? // the hypermedia URL of this resource.
+//    var created: String? // the ISO 8601 date format of the time that this resource was created.
+//    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
     
 }

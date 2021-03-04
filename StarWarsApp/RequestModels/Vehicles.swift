@@ -37,10 +37,10 @@ struct VehiclesProperties: Codable {
     var max_atmosphering_speed: String? // The maximum speed of this vehicle in the atmosphere. "N/A" if this vehicle is incapable of atmospheric flight.
     var cargo_capacity: String? // The maximum number of kilograms that this vehicle can transport.
     var consumables: String? // The maximum length of time that this vehicle can provide consumables for its entire crew without having to resupply.
-    var films: [String]? // An array of Film URL Resources that this vehicle has appeared in.
-    var pilots: [String]? // An array of People URL Resources that this vehicle has been piloted by.
-    var url: String? // the hypermedia URL of this resource.
-    var created: String? // the ISO 8601 date format of the time that this resource was created.
-    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
+//    var films: [String]? // An array of Film URL Resources that this vehicle has appeared in.
+//    var pilots: [String]? // An array of People URL Resources that this vehicle has been piloted by.
+//    var url: String? // the hypermedia URL of this resource.
+//    var created: String? // the ISO 8601 date format of the time that this resource was created.
+//    var edited: String? // the ISO 8601 date format of the time that this resource was edited.
     
 }
