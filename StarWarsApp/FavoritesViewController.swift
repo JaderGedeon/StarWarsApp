@@ -13,13 +13,16 @@ class FavoritesViewController: UICollectionViewController {
     var favoriteItens: Array<StarWarsElement>! = []
     var selectedItem: StarWarsElement!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
-        bgImageView.contentMode = .scaleAspectFit
+        bgImageView.contentMode = .scaleAspectFill
         
         self.collectionView.backgroundView = bgImageView
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

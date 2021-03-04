@@ -21,7 +21,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
     let voiceBttn = UIButton(type: .custom)
     
     let audioEngine = AVAudioEngine()
-    let speechRecognizer = SFSpeechRecognizer()
+    let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "En-us"))
     let request = SFSpeechAudioBufferRecognitionRequest()
     var task: SFSpeechRecognitionTask!
     var started: Bool = false
@@ -38,8 +38,9 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
         voiceBttn.addTarget(self, action: #selector(startStopRecognizer), for: .touchUpInside)
         
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
-        bgImageView.contentMode = .scaleAspectFit
+        bgImageView.contentMode = .scaleAspectFill
         self.collectionView.backgroundView = bgImageView
+        
         
         
         searchBar.delegate = self
@@ -256,7 +257,6 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
             }
             self.collectionView.reloadData()
             
-            print(node)
             
         })
         
