@@ -18,11 +18,6 @@ class FavoritesViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
-        bgImageView.contentMode = .scaleAspectFit
-        
-        self.collectionView.backgroundView = bgImageView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +36,32 @@ class FavoritesViewController: UICollectionViewController {
         }
         
         self.collectionView.reloadData()
+        
+        let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
+        bgImageView.contentMode = .scaleAspectFit
+        
+        self.collectionView.backgroundView = bgImageView
+        
+        if favoriteItens.isEmpty {
+            let image = UIImage(named: "EmptyBar")!
+            let scalableImage = CGSize(width: image.size.width * 0.8, height: image.size.height * 0.8)
+            
+            let renderer = UIGraphicsImageRenderer(size: scalableImage)
+            let scaledImage = renderer.image { _ in
+                image.draw(in: CGRect(origin: .zero, size: scalableImage))
+            }
+            
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: scaledImage.size.width, height: scaledImage.size.height))
+            label.center = CGPoint ( x: UIScreen.main.bounds.size.width*0.5, y: UIScreen.main.bounds.size.height*0.5 )
+            label.textAlignment = .center
+            label.text = "No item present"
+            label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+            label.backgroundColor = UIColor(patternImage: scaledImage)
+            
+            self.collectionView.backgroundView?.addSubview(label)
+        }
         
     }
     
