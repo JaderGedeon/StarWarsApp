@@ -96,12 +96,26 @@ class APIManager {
                         for (label, value) in conditionMirror!.children {
                             if value as? String != nil {
                                 
+                                var localizedStr = String()
+                                
                                 self.originalArrayOfTags.append(label!)
                                 self.originalArrayOfAnswer.append(value as! String)
                                 
-                                self.arrayOfTags.append(self.infoTreatment.treatRequest(type: requestType, requestString: label!))
-                                self.arrayOfAnswer.append(self.infoTreatment.treatRequest(type: requestType, requestString: value as! String))
-                                
+                                self.arrayOfTags.append(NSLocalizedString(label!, comment: ""))
+                                for (index, i) in (value as! String).components(separatedBy: ", ").enumerated(){
+                                    
+                                    if index > 0{
+                                        localizedStr += (", \(NSLocalizedString(i, comment: ""))")
+                                    }
+                                    else{
+                                        localizedStr = (NSLocalizedString(i, comment: ""))
+                                    }
+                                    
+                                    
+                                }
+                                self.arrayOfAnswer.append(localizedStr)
+//                                self.arrayOfAnswer.append(NSLocalizedString((value as! String), comment: ""))
+                            
                             }
                         }
                         

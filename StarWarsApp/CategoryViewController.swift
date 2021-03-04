@@ -243,7 +243,7 @@ class CategoryViewController: UICollectionViewController,  UITextFieldDelegate {
                 }
                 return
             }
-            
+    
             let message = response.bestTranscription.formattedString
             self.searchBar.text = message
             
