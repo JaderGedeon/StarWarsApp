@@ -24,7 +24,7 @@ class APIManager {
     var originalArrayOfTags:[String] = []
     var originalArrayOfAnswer:[String] = []
     
-    var infoTreatment = InfoTreatment()
+    
     var requestDB = RequestDB()
     
     public func Request(requestType: requestTypes, uid: Int, name: String) -> Bool{
@@ -37,18 +37,26 @@ class APIManager {
             for (index,key) in arrayFromDB[0].enumerated() {
                 if arrayFromDB[1][index] != "" {
                     
+                    var localizedStr = String()
                     self.originalArrayOfTags.append(key)
                     self.originalArrayOfAnswer.append(arrayFromDB[1][index])
                     
-                    self.arrayOfTags.append(self.infoTreatment.treatRequest(type: requestType, requestString: key))
-                    self.arrayOfAnswer.append(self.infoTreatment.treatRequest(type: requestType, requestString: arrayFromDB[1][index] ))
+                    self.arrayOfTags.append(NSLocalizedString(key, comment: ""))
+                    for (index, i) in (arrayFromDB[1][index]).components(separatedBy: ", ").enumerated(){
+                        
+                        if index > 0{
+                            localizedStr += (", \(NSLocalizedString(i, comment: ""))")
+                        }
+                        else{
+                            localizedStr = (NSLocalizedString(i, comment: ""))
+                        }
                 }
             }
             
             NotificationCenter.default.post(name: Notification.Name("JSON_OK"), object: nil)
             
             return true
-            
+            }
         } else {
             // API
             

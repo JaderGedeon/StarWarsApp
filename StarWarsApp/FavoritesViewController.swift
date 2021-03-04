@@ -16,6 +16,8 @@ class FavoritesViewController: UICollectionViewController {
     var swList = StarWarsList()
     var api = APIManager()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,10 +40,10 @@ class FavoritesViewController: UICollectionViewController {
         self.collectionView.reloadData()
         
         let bgImageView = UIImageView(image: UIImage(named: "BackGround.png"))
-        bgImageView.contentMode = .scaleAspectFit
+        bgImageView.contentMode = .scaleAspectFill
         
         self.collectionView.backgroundView = bgImageView
-        
+       
         if favoriteItens.isEmpty {
             let image = UIImage(named: "EmptyBar")!
             let scalableImage = CGSize(width: image.size.width * 0.8, height: image.size.height * 0.8)
@@ -62,7 +64,6 @@ class FavoritesViewController: UICollectionViewController {
             
             self.collectionView.backgroundView?.addSubview(label)
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
