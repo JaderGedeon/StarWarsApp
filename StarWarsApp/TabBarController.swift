@@ -11,14 +11,14 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundImage = UIImage()
+        tabBar.backgroundImage = UIImage(named: "backbaixo")
         
         let layer = CAShapeLayer()
         layer.path = UIBezierPath(roundedRect: CGRect(x: 30, y: tabBar.bounds.minY + 5, width: tabBar.bounds.width - 60, height: tabBar.bounds.height + 10), cornerRadius: (tabBar.frame.width/2)).cgPath
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        layer.shadowRadius = 25.0
-        layer.shadowOpacity = 0.3
+        //layer.shadowColor = UIColor.lightGray.cgColor
+        //layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        //layer.shadowRadius = 25.0
+        //layer.shadowOpacity = 0.3
         layer.borderWidth = 1.0
         layer.opacity = 0.1
         layer.isHidden = false
